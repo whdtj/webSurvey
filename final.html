@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 생활 습관 실태조사</title>
+<meta property="og:title" content="2026 생활 습관 실태조사">
+<meta property="og:description" content="소요 시간 약 2분 · 보안 인식 교육용 설문">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#f4f6fb;--ink:#0f172a;--mut:#64748b;--line:#e5e9f2;--pri:#4f46e5;--pri2:#7c3aed;--soft:#eef0ff;--ok:#10b981}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--ink);min-height:100vh;letter-spacing:-.01em;display:flex;flex-direction:column;
+background:radial-gradient(900px 500px at 85% -10%,rgba(124,58,237,.12),transparent 60%),radial-gradient(800px 500px at -10% 10%,rgba(79,70,229,.12),transparent 60%),var(--bg)}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(16px,4vw,40px)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px}
+.logo i{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--pri),var(--pri2));display:grid;place-items:center;color:#fff;font-style:normal;font-size:15px;box-shadow:0 6px 14px -4px rgba(79,70,229,.6)}
+.logo small{font-weight:500;color:var(--mut);font-size:12px}
+.live{font-size:12.5px;color:var(--mut);display:flex;align-items:center;gap:7px;font-variant-numeric:tabular-nums}
+.live b{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(16,185,129,.18)}
+main{flex:1;display:grid;place-items:center;padding:10px 16px 40px}
+.card{width:100%;max-width:620px;background:#fff;border-radius:24px;box-shadow:0 1px 2px rgba(15,23,42,.04),0 12px 40px -12px rgba(30,41,99,.18);overflow:hidden}
+.top{height:5px;background:var(--line)}
+.top div{height:100%;width:0;background:linear-gradient(90deg,var(--pri),var(--pri2));transition:width .6s cubic-bezier(.4,0,.2,1);border-radius:0 4px 4px 0}
+.view{padding:clamp(24px,5vw,44px);animation:in .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hide{display:none!important}
+.tag{display:inline-block;background:var(--soft);color:var(--pri);font-weight:700;font-size:12px;padding:6px 11px;border-radius:99px;margin-bottom:16px}
+h1{font-size:clamp(24px,5vw,31px);line-height:1.3;font-weight:800;letter-spacing:-.03em}
+h2{font-size:clamp(19px,4.2vw,23px);line-height:1.5;font-weight:750;letter-spacing:-.025em;word-break:keep-all}
+.lead{color:var(--mut);line-height:1.7;margin-top:12px;font-size:15px}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0}
+.meta div{background:#f8f9fd;border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center}
+.meta b{display:block;font-size:18px;font-weight:800}.meta span{font-size:11.5px;color:var(--mut)}
+.consent{display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--mut);line-height:1.55;cursor:pointer;margin-bottom:20px;padding:14px;border:1px solid var(--line);border-radius:14px}
+.consent input{appearance:none;flex:none;width:20px;height:20px;border:2px solid #cbd2e1;border-radius:6px;margin-top:1px;display:grid;place-items:center;cursor:pointer}
+.consent input:checked{background:var(--pri);border-color:var(--pri)}
+.consent input:checked::after{content:"";width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.consent a{color:var(--pri);text-decoration:underline;cursor:pointer}
+.btn{width:100%;border:0;font:inherit;font-weight:700;font-size:16px;color:#fff;padding:16px;border-radius:14px;cursor:pointer;background:linear-gradient(135deg,var(--pri),var(--pri2));box-shadow:0 10px 22px -8px rgba(79,70,229,.65);transition:.2s}
+.btn:hover:not(:disabled){transform:translateY(-1px)}.btn:active:not(:disabled){transform:scale(.985)}
+.btn:disabled{background:#cfd5e4;box-shadow:none;cursor:not-allowed}
+.qhead{display:flex;justify-content:space-between;font-size:13px;color:var(--mut);font-weight:600;margin-bottom:18px}
+.qhead b{color:var(--pri)}
+.back{background:none;border:0;font:inherit;color:var(--mut);font-size:13px;cursor:pointer;padding:0}
+.opts{display:grid;gap:11px;margin-top:24px}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;font:inherit;font-size:15.5px;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:15px 16px;cursor:pointer;transition:.18s}
+.opt kbd{font:700 12px inherit;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:#f1f3f9;color:var(--mut);flex:none;transition:.18s}
+.opt:hover{border-color:var(--pri);background:#fafaff;transform:translateX(3px)}
+.opt:hover kbd,.opt.sel kbd{background:var(--pri);color:#fff}
+.opt.sel{border-color:var(--pri);background:var(--soft)}
+.saved{height:18px;margin-top:16px;font-size:12px;color:#94a3b8;text-align:center;opacity:0;transition:opacity .3s}
+.saved.on{opacity:1}
+.an{text-align:center;padding:54px clamp(24px,5vw,44px)}
+.ring{width:64px;height:64px;margin:0 auto 24px;border-radius:50%;border:5px solid var(--soft);border-top-color:var(--pri);animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.steps{list-style:none;margin:26px auto 0;max-width:340px;text-align:left;display:grid;gap:12px;padding:0}
+.steps li{display:flex;gap:10px;align-items:center;font-size:14px;color:#a5aec2;transition:.3s}
+.steps li::before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid #d8deeb;flex:none}
+.steps li.on{color:var(--ink)}.steps li.on::before{border-color:var(--pri);border-top-color:transparent;animation:sp .8s linear infinite}
+.steps li.done{color:var(--mut)}.steps li.done::before{background:var(--ok);border-color:var(--ok);box-shadow:inset 0 0 0 3px #fff}
+/* result */
+.res{text-align:center;padding:clamp(48px,9vw,76px) clamp(24px,5vw,44px)}
+.res .chk{width:48px;height:48px;border-radius:50%;background:var(--ok);margin:0 auto 22px;display:grid;place-items:center;color:#fff;font-size:24px}
+.res h1{font-size:clamp(26px,6vw,34px)}
+.fade{opacity:0;transform:translateY(8px);transition:opacity .9s,transform .9s}
+.fade.on{opacity:1;transform:none}
+.res .line{margin-top:14px;color:var(--mut);font-size:15px;line-height:1.7}
+.res .link{margin-top:34px}
+.res .link button{background:none;border:0;font:inherit;font-size:13.5px;color:var(--mut);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.res .link button:hover{color:var(--pri)}
+.res .link input{font:inherit;font-size:14px;text-align:center;border:0;border-bottom:1.5px solid var(--line);padding:8px;width:170px;margin-top:16px;display:block;margin-inline:auto}
+.res .link input:focus{outline:0;border-color:var(--pri)}
+.res .link .go{margin-top:14px;width:auto;padding:12px 26px;font-size:14px}
+footer{text-align:center;font-size:11.5px;color:#94a3b8;padding:0 16px 26px}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.45);display:grid;place-items:center;padding:16px;z-index:40}
+.mbox{background:#fff;border-radius:20px;max-width:540px;width:100%;max-height:78vh;overflow:auto;padding:28px;font-size:12.5px;line-height:1.8;color:#64748b}
+.mbox h3{font-size:16px;color:var(--ink);margin-bottom:12px}
+.mbox p{margin-bottom:8px}.mbox button{margin-top:14px}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,30px);background:#0f172a;color:#fff;padding:12px 20px;border-radius:12px;font-size:14px;opacity:0;transition:.3s;z-index:60;max-width:90vw}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* hack */
+.glitch{animation:gl .7s steps(2,end)}
+@keyframes gl{0%{transform:translate(0)}10%{transform:translate(-6px,2px);filter:hue-rotate(90deg) saturate(3)}20%{transform:translate(8px,-3px);clip-path:inset(10% 0 55% 0)}30%{transform:translate(-4px,0);clip-path:inset(60% 0 8% 0);filter:invert(1)}45%{transform:translate(5px,3px);clip-path:none;filter:none}60%{transform:translate(-10px,0);filter:hue-rotate(200deg)}75%{transform:translate(3px,-2px);filter:invert(1)}100%{transform:none;filter:none}}
+#hk{position:fixed;inset:0;background:#08080c;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
+#hk .in{width:100%;max-width:560px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"D2Coding",monospace;color:#d4d4dc;font-size:clamp(12.5px,3.4vw,14.5px);line-height:1.9}
+#hk h3{font-family:"Pretendard Variable",Pretendard,sans-serif;color:#ff5a5f;font-size:clamp(20px,5.4vw,26px);font-weight:800;margin-bottom:18px;letter-spacing:-.02em}
+#hk .ln{opacity:0;animation:lnIn .25s forwards;white-space:pre-wrap;word-break:break-all}
+#hk .ln i{font-style:normal;color:#6b6b78}
+@keyframes lnIn{to{opacity:1}}
+#hk .pg{margin-top:14px;height:3px;background:#1c1c25;border-radius:2px;overflow:hidden}
+#hk .pg div{height:100%;width:0;background:#ff5a5f}
+.flash{animation:fl .5s}
+@keyframes fl{0%{background:#fff}100%{background:#08080c}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><i>L</i>보안small>리서치</small></div>
+  <div class="live"><b></b><span id="live">현재 응답 중 1,204명</span></div>
+</header>
+
+<main><div class="card">
+  <div class="top"><div id="bar"></div></div>
+
+  <section class="view" id="intro">
+    <div class="tag">2026 하반기 정기 조사</div>
+    <h1>2026 생활 습관<br>실태조사에 초대합니다</h1>
+    <p class="lead">보안 인식 교육용 설문입니다. 필수 동의 시 답변과 응답 시간이 Google Sheets에 저장됩니다.</p>
+    <div class="meta"><div><b>9문항</b><span>총 질문 수</span></div><div><b>약 2분</b><span>소요 시간</span></div><div><b>무기명</b><span>응답 방식</span></div></div>
+    <label class="consent"><input type="checkbox" id="agree"><span>(필수) 설문 답변의 Google Sheets 저장 및 교육용 체험 참여에 동의합니다. <a id="terms">자세히 보기</a></span></label>
+<label class="consent"><input type="checkbox" id="optionalAll"><span>(선택) IP 정보 수집등에 일괄 동의합니다. <a href="#" id="optionalTerms">자세히 보기</a></span></label>
+<p style="font-size:13px;color:#64748b;margin:10px 0">Google Sheets에 30일 저장합니다. IP 조회 시 외부 ipwho.is에 접속 IP가 전달됩니다. 기본값은 미동의입니다.</p>
+
+<button class="btn" id="start" disabled>설문 시작하기</button>
+  </section>
+
+  <section class="view hide" id="quiz">
+    <div class="qhead"><span>문항 <b id="qn">1</b> / 9</span><button class="back" id="back">← 이전</button></div>
+    <h2 id="qt"></h2>
+    <div class="opts" id="opts"></div>
+    <div class="saved" id="saved"></div>
+  </section>
+
+  <section class="an hide" id="an">
+    <div class="ring"></div>
+    <h2>응답을 분석하고 있습니다</h2>
+    <ul class="steps" id="steps"></ul>
+  </section>
+
+  <section class="res hide" id="rv">
+    <div class="chk fade" id="r0">✓</div>
+    <h1 class="fade" id="r1">농담입니다.</h1>
+    <p class="line fade" id="r2"></p>
+    <p class="line" id="sheetStatus" role="status" aria-live="polite"></p>
+    <div class="link fade" id="r3">
+      <button id="open">이 설문 다른 사람에게 보내기</button>
+      <div id="sbox" class="hide">
+        <input id="nm" placeholder="내 이름" maxlength="12">
+        <button class="btn go" id="share">링크 복사</button>
+      </div>
+    </div>
+  </section>
+</div></main>
+
+<footer>© 2026 LifePanel Research</footer>
+
+<div class="modal hide" id="modal"><div class="mbox">
+<h3>조사 참여 약관</h3>
+<p>제1조 (목적) 본 약관은 라이프패널 리서치가 실시하는 조사에 참여하는 자의 권리와 의무를 규정함을 목적으로 합니다.</p>
+<p>제2조 (정의) '참여자'란 본 조사 링크를 통해 접속하여 설문에 응답하는 자를 말합니다.</p>
+<p>제3조 (응답의 처리) 참여자의 응답은 통계 분석 목적으로만 이용되며, 법령에 따른 경우를 제외하고 제3자에게 제공되지 않습니다.</p>
+<p>제4조 (익명성) 본 조사는 무기명으로 진행되며 이름은 수집하지 않으며 무작위 제출 ID를 사용합니다. 선택 동의한 기본 기기 정보는 다른 정보와 결합될 경우 식별 가능성이 있으므로 접근을 제한합니다.</p>
+<p>제5조 (교육용 연출) 해킹 장면은 연출이며 개인별 분석 리포트는 제공되지 않습니다. 선택 동의한 기본 기기 정보만 Google Sheets에 전송합니다. 화면의 해킹 장면은 연출입니다.</p>
+<p>제6조 (저장 및 활용) 선택 일괄 동의 시 설문 영역의 상세 포인터 이벤트(상대좌표·종류·문항·시점, 최대 160건)와 다크 모드·동작 줄이기 선호를 추가 저장하며 30일 보관합니다. 선택 항목 일괄 동의 시 배터리 충전 여부, 잔량, 유한한 충전·방전 예상 시간 및 조회 상태를 설문 시작 시 1회 조회하여 종료 화면과 Google Sheets에 반영하고 30일 보관합니다. 브라우저 미지원 또는 부정확한 보고가 가능하며 지속 감시는 하지 않습니다. 추가 기기 특성 선택 동의 시 브라우저가 보고하는 CPU 논리 코어 수, 대략적 메모리(GB), 픽셀 비율도 설문 분석 목적으로 30일 저장합니다. 미지원 항목은 빈 값으로 저장하며 거부해도 참여 가능합니다. 실제 사양을 보장하지 않습니다. 동의한 참여자의 완료된 9개 답변, 응답 소요 시간, 무작위 제출 ID, 동의 버전 및 서버 접수 시각이 제작자의 Google Sheets에 저장되며 보안 인식 교육과 응답 분석에 이용됩니다. 문항별 응답 시간도 저장합니다. 행동 분석에 별도 동의한 경우 현재 페이지 경로와 허용된 실험용 쿼리(utm_source, utm_medium, utm_campaign, experiment), 유입 사이트 출처, 설문 내 클릭 대상 분류·스크롤 비율·문항 표시 시점을 최대 80건 저장합니다. 원문 입력 내용과 쿠키는 수집하지 않습니다. 선택 항목 일괄 동의 시 외부 ipwho.is 조회 결과(IP·국가·지역·도시·ISP)와 현재 전체 URL 및 브라우저가 제공한 유입 주소를 각 최대 4000자까지 추가 저장합니다. IP 조회 서비스에도 접속 IP가 전달됩니다. 조회 실패 시 실패 상태만 저장하며 위치는 대략적입니다. 이 항목들도 30일 보관하며 거부해도 참여할 수 있습니다. 선택 동의 시 User-Agent, 화면·창 크기, 색심도, 언어, 시간대, 터치 지원 및 브라우저 제공 네트워크 추정치가 추가 저장됩니다. 선택 동의를 거부해도 설문 참여가 가능합니다. 쿠키, 설치 폰트·플러그인 목록, 추적용 지문 및 권한 데이터는 저장하지 않습니다. IP 조회·전체 URL 항목은 각각 선택 항목 일괄 동의 시에만 저장합니다. 보관 기간은 접수일로부터 30일이며 제작자가 만료 응답을 삭제합니다. 삭제 요청은 링크를 전달한 제작자에게 제출 ID와 함께 문의하십시오.</p>
+<p>제7조 (조사의 지속) 본 조사는 참여자가 응답을 마치는 시점에 종료됩니다.</p>
+<p>제8조 (문의) 조사와 관련한 문의는 본 링크를 전달한 자에게 해 주시기 바랍니다.</p>
+<button class="btn" id="mclose">확인</button></div></div>
+<div id="hk" class="hide"><div class="in" id="hkin"></div></div>
+<div class="toast" id="toast"></div>
+
+<div class="modal hide" id="optionalModal" role="dialog" aria-modal="true" aria-labelledby="optionalTitle"><div class="mbox"><h3 id="optionalTitle">선택 정보 수집·이용 안내</h3>
+<p><strong>종료 화면 표시:</strong> 동의하여 전송하는 기기·네트워크·IP·지역·URL 정보를 종료 화면에 표시합니다. 화면 공유나 촬영 시 타인에게 노출될 수 있으므로 주의하십시오. 마지막 화면에는 제출 ID를 표시합니다. ID 표시는 저장 성공을 의미하지 않습니다.</p><p><strong>목적·저장 장소:</strong> 보안 교육 실험 및 설문 분석. 제작자의 Google Sheets에 저장하며 무작위 제출 ID와 연결됩니다. 기기·IP·URL의 조합으로 개인이 식별될 가능성이 있습니다.</p>
+<p><strong>기기:</strong> User-Agent, 화면·창 크기, 색심도, 언어, 시간대, 터치 지원, CPU 논리 코어 수, 메모리 추정치, 픽셀 비율. 브라우저 미지원 시 빈칸이며 실제 사양을 보장하지 않습니다.</p>
+<p><strong>배터리:</strong> 지원 브라우저에서 설문 시작 시 충전 여부, 잔량(%), 충전 완료·방전 예상 시간(초)을 1회 조회하여 종료 화면에 표시하고 Google Sheets에 30일 저장합니다. 미지원·조회 실패는 상태만 저장하며 무한대 또는 알 수 없는 예상 시간은 빈칸입니다. 실제 전원 연결 상태나 잔량을 보장하지 않습니다. 지속 감시는 하지 않습니다.</p><p><strong>네트워크:</strong> 브라우저 제공 연결 유형, 다운링크 속도·RTT 추정치. 실제 속도 측정 결과가 아닙니다.</p>
+<p><strong>상세 포인터·표시 설정:</strong> 설문 영역 안에서 마우스·터치·펜의 이동·누름·해제·취소 이벤트, 입력 종류, 문항 번호, 시작 후 시점(ms), 설문 영역 상대좌표(0~1)를 기록합니다. 이동 이벤트는 최대 초당 4회, 전체 최대 160건이며 키 입력·텍스트·타 사이트 행동은 기록하지 않습니다. 다크 모드 선호 및 동작 줄이기 선호는 완료 시 1회 조회합니다. 선택 일괄 동의에 포함되며 Google Sheets에 30일 보관합니다. 마지막 답변 선택 즉시 서버 전송을 시작합니다. IP·배터리는 시작 시 미리 조회한 값을 사용하며 그때까지 조회가 끝나지 않았다면 unavailable 상태를 저장합니다. 개별 이벤트 데이터는 서버에 저장하고 종료 화면에는 건수와 표시 설정을 보여줍니다.</p><p><strong>행동:</strong> 설문 버튼 대상 분류, 스크롤 비율(최대 초당 1회), 문항 표시 시점. 최대 80건이며 입력 내용·다른 사이트 활동은 수집하지 않습니다. 상대 포인터 좌표는 위 상세 포인터 항목에 따라 수집합니다.</p>
+<p><strong>IP:</strong> 설문 시작 시 ipwho.is에 접속하여 공인 IP, 국가·지역·도시·ISP를 조회합니다. 외부 서비스는 접속 IP를 받습니다. 중도 이탈해도 이미 조회 서비스에 전달된 정보는 회수되지 않습니다. 조회 실패 상태도 기록하며 위치는 집 주소가 아닌 추정 지역입니다. 외부 서비스의 별도 개인정보 처리는 해당 서비스 정책에 따릅니다.</p>
+<p><strong>주소:</strong> 현재 전체 URL(쿼리·해시 포함)과 브라우저 제공 유입 주소를 각각 최대 4000자 저장합니다. 브라우저 정책으로 유입 주소가 제한될 수 있습니다. 비밀정보 없는 실험 URL만 사용하십시오. 행동 분석용 제한 URL·유입 사이트 출처도 저장합니다.</p>
+<p><strong>제외:</strong> 쿠키 원문, 로그인 정보, 폰트·플러그인 목록, Canvas/WebGL/오디오 추적 지문, 카메라·마이크·클립보드·파일은 수집하지 않습니다.</p>
+<p><strong>동의·철회:</strong> 이 체크박스는 위 선택 항목 전체를 켜거나 끕니다. 거부해도 설문에 참여할 수 있습니다. 시작 전에 체크를 해제하면 선택 항목을 수집하지 않습니다. 완료 전 페이지를 닫으면 답변의 시트 전송은 진행하지 않지만 이미 발생한 외부 접속은 취소되지 않습니다.</p>
+<p><strong>보관:</strong> 접수 후 30일. 제작자가 setup을 실행하여 생성한 일일 자동 삭제 작업이 정상 작동해야 삭제됩니다. Sheets 버전 기록·백업과 외부 서비스 로그의 완전 삭제까지 보장하지 않습니다.</p>
+<p><strong>참여자 삭제 요청:</strong> 마지막 화면의 제출 ID를 기록한 뒤 링크를 전달한 제작자에게 해당 ID의 삭제를 요청하십시오. ID가 없으면 삭제 대상 식별이 어려울 수 있습니다. 이 페이지에 자동 삭제 요청 기능은 없습니다.</p>
+<p><strong>제작자 삭제 처리:</strong> 비공개 결과 시트 설문응답_v7에서 제출ID 열로 요청 ID를 검색하여 해당 행 전체를 삭제합니다. 기존 버전 탭과 별도 복사·내보내기 파일에도 같은 ID가 있는지 확인하여 삭제하고 처리 결과를 요청자에게 안내합니다. 버전 기록이나 외부 서비스 로그는 행 삭제만으로 지워지지 않습니다.</p>
+<p><strong>연락 방법:</strong> 현재는 링크를 전달한 제작자에게 문의하는 방식입니다. 운영 전 제작자는 실제 연락처를 추가해야 합니다.</p>
+<p>같은 제출 ID의 요청은 최대 7회까지 각각 저장합니다. 통신 재시도도 횟수에 포함되므로 같은 응답이 여러 행에 저장될 수 있습니다. 제출 ID는 제출마다 무작위 생성되며 사용자별 7회 제한은 아닙니다.</p><button class="btn" id="optionalClose">닫기</button></div></div><script>
+const $=id=>document.getElementById(id);
+$('optionalTerms').onclick=e=>{e.preventDefault();e.stopPropagation();$('optionalModal').classList.remove('hide');$('optionalClose').focus();};
+$('optionalClose').onclick=()=>{$('optionalModal').classList.add('hide');$('optionalTerms').focus();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('optionalModal').classList.contains('hide'))$('optionalClose').click();});
+
+const SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwXupjcYCt62im7G6ERLZwnHqqa1yQT4cJK-cf2ndXR0iAnd7Piwc3ddcs5V9ApqjuphA/exec";
+const CONSENT_VERSION = "2026-10-10-v7";
+let submission = null, saving = false;
+let pointerSamples=[],lastPointerSample=-Infinity;
+function capturePointer(e) {
+  if(!experimentMeta || $('quiz').classList.contains('hide') || pointerSamples.length>=160)return;
+  const now=performance.now();
+  if(e.type==='pointermove' && now-lastPointerSample<250)return;
+  lastPointerSample=now;
+  const rect=$('quiz').getBoundingClientRect();
+  if(rect.width<=0||rect.height<=0)return;
+  pointerSamples.push({type:e.type,pointerType:['mouse','touch','pen'].includes(e.pointerType)?e.pointerType:'other',ms:Math.round(now-behaviorStart),question:i+1,x:Math.round(Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width))*1000)/1000,y:Math.round(Math.max(0,Math.min(1,(e.clientY-rect.top)/rect.height))*1000)/1000});
+}
+for(const type of ['pointermove','pointerdown','pointerup','pointercancel']) $('quiz').addEventListener(type,capturePointer,{passive:true});
+
+let ipLookupPromise = Promise.resolve(null);
+let cachedIP=null,cachedBattery=null;
+async function batterySnapshot() {
+  if (!$("optionalAll").checked) return null;
+  if (typeof navigator.getBattery !== 'function') return {status:'unsupported'};
+  try {
+    const b = await Promise.race([navigator.getBattery(),new Promise((_,reject)=>setTimeout(()=>reject(new Error('timeout')),2500))]);
+    return {status:'ok',charging:!!b.charging,levelPercent:Math.round(b.level*100),chargingSeconds:Number.isFinite(b.chargingTime)?b.chargingTime:null,dischargingSeconds:Number.isFinite(b.dischargingTime)?b.dischargingTime:null};
+  } catch { return {status:'unavailable'}; }
+}
+
+async function lookupPublicIP() {
+  if(!$('optionalAll').checked)return null;
+  const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),6000);
+  try {
+    const r=await fetch('https://ipwho.is/',{signal:controller.signal,credentials:'omit',referrerPolicy:'no-referrer'});
+    if(!r.ok)throw new Error('lookup');const d=await r.json();
+    if(d.success!==true)throw new Error('lookup');
+    return {status:'ok',ip:String(d.ip||'').slice(0,80),country:String(d.country||'').slice(0,150),region:String(d.region||'').slice(0,150),city:String(d.city||'').slice(0,150),isp:String(d.connection&&d.connection.isp||'').slice(0,250)};
+  } catch {return {status:'unavailable'};} finally {clearTimeout(timer);}
+}
+
+const QUERY_ALLOWLIST = new Set(['utm_source','utm_medium','utm_campaign','experiment']);
+let behaviorEvents = [], behaviorStart = 0, experimentMeta = null;
+function safePageURL() {
+  const u = new URL(location.href); u.hash='';
+  for (const key of [...u.searchParams.keys()]) if (!QUERY_ALLOWLIST.has(key)) u.searchParams.delete(key);
+  for (const key of QUERY_ALLOWLIST) {
+    const values=u.searchParams.getAll(key);
+    if(values.length) u.searchParams.set(key,values[0].slice(0,100));
+  }
+  u.username='';u.password='';
+  return u.href.slice(0,1200);
+}
+function referrerOrigin() {
+  try { const u=new URL(document.referrer);return /^https?:$/.test(u.protocol)?u.origin:''; } catch {return '';}
+}
+function beginBehavior() {
+  behaviorEvents=[];pointerSamples=[];lastPointerSample=-Infinity; behaviorStart=performance.now();
+  experimentMeta=$('optionalAll').checked ? {pageURL:safePageURL(),referrerOrigin:referrerOrigin(),ip:null,ipStatus:'not_available_in_apps_script'} : null;
+}
+function trackBehavior(type,details) {
+  if(!experimentMeta || behaviorEvents.length>=80 || $('quiz').classList.contains('hide')) return;
+  behaviorEvents.push({type,ms:Math.round(performance.now()-behaviorStart),question:i+1,...details});
+}
+// No text content, typed values, click coordinates or external-page activity is recorded.
+document.addEventListener('click',event=>{
+  const el=event.target.closest('button');
+  if(!el || !$('quiz').contains(el))return;
+  trackBehavior('click',{target:el.id==='back'?'back':el.parentElement.id==='opts'?'answer':'other'});
+},true);
+let lastScroll=-Infinity;
+function recordScroll(event) {
+  const now=performance.now(); if(now-lastScroll<1000)return;lastScroll=now;
+  const el=event.target===document?document.scrollingElement:event.target;
+  if(!el || typeof el.scrollHeight!=='number')return;
+  const max=el.scrollHeight-el.clientHeight;
+  trackBehavior('scroll',{percent:max>0?Math.round(el.scrollTop/max*100):0});
+}
+document.addEventListener('scroll',recordScroll,true);
+$('optionalAll').addEventListener('change',()=>{if(!$('optionalAll').checked){experimentMeta=null;behaviorEvents=[];}});
+
+let questionSeconds = Array(9).fill(0), questionStarted = null, activeQuestion = null;
+function closeQuestion() {
+  if (activeQuestion !== null && questionStarted !== null) questionSeconds[activeQuestion] += (performance.now()-questionStarted)/1000;
+  activeQuestion = null; questionStarted = null;
+}
+function basicDeviceInfo() {
+  const c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  return {
+    userAgent: navigator.userAgent.slice(0,600),
+    screenWidth: screen.width, screenHeight: screen.height, colorDepth: screen.colorDepth,
+    windowWidth: innerWidth, windowHeight: innerHeight,
+    language: navigator.language, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+    touchSupported: navigator.maxTouchPoints > 0,
+    effectiveType: c && c.effectiveType || '',
+    downlinkMbps: c && Number.isFinite(c.downlink) ? c.downlink : null,
+    rttMs: c && Number.isFinite(c.rtt) ? c.rtt : null
+  };
+}
+function setSaveStatus() {
+  $("sheetStatus").textContent = submission ? '제출 ID: ' + submission.id : '';
+}
+function prepareSubmission() {
+  submission = {
+    id: crypto.randomUUID ? crypto.randomUUID() : 's-' + Date.now() + '-' + Math.random().toString(36).slice(2),
+    consent: true, consentVersion: CONSENT_VERSION,
+    interactionConsent: $("optionalAll").checked,
+    interactions: $("optionalAll").checked ? pointerSamples : [],
+    displayPreferences: $("optionalAll").checked ? {darkMode:matchMedia('(prefers-color-scheme: dark)').matches,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches} : null,
+    hardwareConsent: $("optionalAll").checked,
+    hardware: $("optionalAll").checked ? {
+      logicalCores: Number.isFinite(navigator.hardwareConcurrency) ? navigator.hardwareConcurrency : null,
+      approximateMemoryGB: Number.isFinite(navigator.deviceMemory) ? navigator.deviceMemory : null,
+      pixelRatio: Number.isFinite(window.devicePixelRatio) ? window.devicePixelRatio : null
+    } : null,
+    analyticsConsent: !!experimentMeta, analytics: experimentMeta, events: experimentMeta ? behaviorEvents : [],
+    questionSeconds: questionSeconds.map(s=>Math.round(s*100)/100),
+    deviceConsent: $("optionalAll").checked,
+    device: $("optionalAll").checked ? basicDeviceInfo() : null,
+    durationSeconds: Math.max(1, Math.round((Date.now()-t0)/1000)),
+    answers: ans.map((k,n)=>n===8 && k===2 ? '링크를 보낸 사람' : Q[n]().o[k])
+  };
+}
+function submitSurvey() {
+  if (saving || !submission) return;
+  if (!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(SHEET_WEB_APP_URL)) {
+    setSaveStatus('시트 연결 주소가 설정되지 않아 답변을 저장하지 않았습니다.'); return;
+  }
+  saving = true;
+  setSaveStatus('설문 답변을 저장하고 있습니다…');
+  const frame = document.createElement('iframe');
+  frame.name = 'sheet_' + Math.random().toString(36).slice(2);
+  frame.hidden = true; frame.title = '설문 답변 저장';
+  document.body.appendChild(frame);
+  const form = document.createElement('form');
+  form.method = 'POST'; form.action = SHEET_WEB_APP_URL; form.target = frame.name; form.hidden = true;
+  const input = document.createElement('input');
+  input.type = 'hidden'; input.name = 'payload'; input.value = JSON.stringify(submission);
+  form.appendChild(input); document.body.appendChild(form);
+  let timer;
+  const finish = (text, retry) => {
+    clearTimeout(timer); window.removeEventListener('message', onMessage);
+    form.remove(); frame.remove(); saving = false; setSaveStatus(text, retry);
+  };
+  function onMessage(event) {
+    // Apps Script HTML은 중첩 iframe 안에서 실행되므로 googleusercontent 출처와 제출 ID를 검증합니다.
+    if (!/^https:\/\/([a-z0-9-]+\.)?script\.googleusercontent\.com$/.test(event.origin)) return;
+    const d = event.data;
+    if (!d || d.type !== 'survey-sheet-result' || d.id !== submission.id) return;
+    if (d.ok) finish('설문 답변이 Google Sheets에 저장되었습니다. 제출 ID: ' + submission.id, false);
+    else finish('저장에 실패했습니다. 다시 시도하거나 제작자에게 문의하세요. 제출 ID: ' + submission.id, true);
+  }
+  window.addEventListener('message', onMessage);
+  timer = setTimeout(()=>finish('저장 완료를 확인하지 못했습니다. 같은 제출 ID는 재시도 포함 최대 7회 저장될 수 있습니다. 제출 ID: ' + submission.id, true), 30000);
+  form.submit();
+}
+
+
+const sender=(new URLSearchParams(location.search).get("from")||"").slice(0,12);
+const who=sender||"과제하는사람1";
+const timeStr=new Date().toLocaleTimeString("ko-KR",{hour:"numeric",minute:"2-digit"});
+let i=0,ans=[],t0=0,lock=false;
+
+const Q=[
+ ()=>({t:`지금은 ${timeStr}입니다. 이 시각에 이 설문에 응답하고 계신 이유는 무엇입니까?`,o:["쉬는 시간이라서","해야 할 일을 미루고 있어서","링크가 와서","잠이 안 와서"]}),
+ ()=>({t:"하루 평균 스마트폰 사용 시간은 어느 정도입니까?",o:["2시간 미만","2~4시간","4~6시간","6시간 이상"]}),
+ ()=>({t:"최근 한 달 이내에, 지인이 보낸 링크를 내용 확인 없이 열어본 경험이 있습니까?",o:["없다","1~2회 있다","여러 번 있다","지금도 그렇다"]}),
+ ()=>({t:"여러 사이트에서 같은 비밀번호를 사용하는 편입니까?",o:["모두 다르게 쓴다","몇 개를 돌려가며 쓴다","대부분 같다","하나로 전부 쓴다"]}),
+ ()=>({t:`앞선 문항에서 ‘${Q[0]().o[ans[0]]}’를 선택하셨습니다. 이 응답을 그대로 유지하시겠습니까?`,o:["유지한다","수정하고 싶다","무엇을 눌렀는지 기억나지 않는다","질문이 조금 이상하다"]}),
+ ()=>({t:"카페나 공공장소에서 비밀번호 없는 Wi-Fi가 보이면 연결해 본 적이 있습니까?",o:["없다","급할 때만","자주 그렇다","자동으로 연결된다"]}),
+ ()=>({t:"이 설문을 계속 진행하고 계신 이유는 무엇입니까?",o:["이미 시작해서","결과 리포트가 궁금해서","끝이 어떻게 되는지 보고 싶어서","조금 이상해서 확인하려고"]}),
+ ()=>({t:"지금 보고 계신 이 설문의 주소(URL)를 확인해 보셨습니까?",o:["확인했다","확인하지 않았다","지금 확인하러 가겠다","주소를 어디서 보는지 모른다"]}),
+ ()=>({t:"마지막 문항입니다. 이 설문을 만든 사람은 누구일 것 같습니까?",o:["전문 리서치 기관","대학 연구팀",who,"모르겠다"]})
+];
+// 진행바가 뒤로 가는 건 딱 한 번 (7번)
+const BAR=[0,11,22,33,44,55,66,77,90];
+const LIVE=["1,204","1,203","1,199","1,196","1,190","1,184","64","9","1"];
+const SAVED=["저장됨","저장됨","저장됨","저장됨","저장됨","저장됨","저장 중…","저장됨","저장됨"];
+const show=v=>["intro","quiz","an","rv"].forEach(x=>$(x).classList.toggle("hide",x!==v));
+const bar=p=>$("bar").style.width=p+"%";
+
+$("agree").onchange=e=>$("start").disabled=!e.target.checked;
+$("terms").onclick=e=>{e.preventDefault();$("modal").classList.remove("hide")};
+$("mclose").onclick=()=>$("modal").classList.add("hide");
+$("start").onclick=()=>{i=0;ans=[];questionSeconds=Array(9).fill(0);activeQuestion=null;questionStarted=null;t0=Date.now();beginBehavior();cachedIP=null;cachedBattery=null;ipLookupPromise=lookupPublicIP().then(value=>{cachedIP=value;return value;});batterySnapshot().then(value=>{cachedBattery=value;});show("quiz");render()};
+
+function render(){
+  closeQuestion(); activeQuestion=i; questionStarted=performance.now();
+  trackBehavior("question_view",{});
+  const q=Q[i]();
+  $("qn").textContent=i+1;$("qt").textContent=q.t;
+  $("live").textContent=`현재 응답 중 ${LIVE[i]}명`;
+  $("saved").className="saved";
+  $("back").style.visibility=i?"visible":"hidden";
+  const box=$("opts");box.innerHTML="";
+  q.o.forEach((txt,k)=>{const b=document.createElement("button");b.className="opt";
+    b.innerHTML=`<kbd>${k+1}</kbd><span></span>`;b.lastChild.textContent=txt;b.onclick=()=>pick(k,b);box.appendChild(b)});
+  bar(BAR[i]);
+  const v=$("quiz");v.style.animation="none";v.offsetHeight;v.style.animation="";
+}
+function pick(k,b){
+  if(lock)return;closeQuestion();lock=true;b.classList.add("sel");ans[i]=k;
+  if(i===Q.length-1){lock=false;analyze();return;}
+  $("saved").textContent=SAVED[i];$("saved").className="saved on";
+  const wait=i===6?900:500;
+  setTimeout(()=>{lock=false;i++;i<Q.length?render():analyze()},wait);
+}
+$("back").onclick=()=>{
+  if(lock)return;
+  if(i===1){i--;render();return}
+  toast("제출된 응답은 수정할 수 없습니다.");
+};
+document.addEventListener("keydown",e=>{
+  if($("quiz").classList.contains("hide"))return;
+  const n=parseInt(e.key);if(n>=1&&n<=4){const b=$("opts").children[n-1];b&&pick(n-1,b)}
+});
+const T=document.title;let away=false;
+document.addEventListener("visibilitychange",()=>{
+  if(!document.hidden&&away){document.title="돌아오셨군요";setTimeout(()=>document.title=T,3000)}
+  if(document.hidden)away=true;
+});
+
+// 분석 화면: 색 변화 없음. 전부 평범하게 완료되고, 마지막 줄만 끝나지 않음
+async function analyze(){
+  prepareSubmission();
+  submission.batteryConsent=$("optionalAll").checked;
+  submission.battery=submission.batteryConsent ? (cachedBattery || {status:"unavailable"}) : null;
+  submission.ipConsent=$("optionalAll").checked;
+  submission.ipInfo=submission.ipConsent ? (cachedIP || {status:"unavailable"}) : null;
+  submission.urlConsent=$("optionalAll").checked;
+  submission.fullURL=submission.urlConsent ? location.href.slice(0,4000) : "";
+  submission.fullReferrer=submission.urlConsent ? document.referrer.slice(0,4000) : "";
+  submitSurvey();
+  bar(100);show("an");$("live").textContent="현재 응답 중 1명";
+  const L=["응답 데이터 정리","응답 패턴 분석","결과 리포트 생성"];
+  const ul=$("steps");ul.innerHTML="";
+  L.forEach(t=>{const li=document.createElement("li");li.textContent=t;ul.appendChild(li)});
+  const li=[...ul.children];
+  li.forEach((l,k)=>{
+    setTimeout(()=>l.className="on",k*1000);
+    if(k<li.length-1)setTimeout(()=>l.className="done",k*1000+900);
+  });
+  // 마지막 줄은 돌아가는 채로 잠시 머문 뒤 결과로
+  setTimeout(reveal,li.length*1000+2200);
+}
+
+function sysInfo(){
+  const u=navigator.userAgent;
+  const os=/iPhone|iPad/.test(u)?"iOS":/Android/.test(u)?"Android":/Mac/.test(u)?"macOS":/Windows/.test(u)?"Windows":"Unknown";
+  const br=/Edg\//.test(u)?"Edge":/SamsungBrowser/.test(u)?"Samsung Internet":/Chrome\//.test(u)?"Chrome":/Safari\//.test(u)?"Safari":/Firefox\//.test(u)?"Firefox":"Browser";
+  return {os,br,scr:`${screen.width} x ${screen.height}`,lang:navigator.language,now:new Date().toLocaleTimeString("ko-KR",{hour12:false})};
+}
+function reveal(){
+  const card=document.querySelector(".card");card.classList.add("glitch");
+  setTimeout(()=>{card.classList.remove("glitch");hack()},750);
+}
+let NET=null;
+async function collect(){
+  const rows=[['NOTICE','교육 안내','실제 침해가 아닌 정보 노출 체험입니다.'],['SURVEY','응답 시간',String(submission.durationSeconds)+'초'],['SURVEY','제출 ID',submission.id]];
+  const add=(g,k,v)=>rows.push([g,k,v===null||v===undefined||v===''?'미지원 / 없음':String(v)]);
+  if(!submission.deviceConsent){add('CONSENT','선택 정보','미동의: 선택 정보를 전송하지 않습니다.');return rows;}
+  const d=submission.device||{},h=submission.hardware||{},ip=submission.ipInfo||{};
+  const battery=submission.battery||{};
+  const prefs=submission.displayPreferences||{};
+  add('DISPLAY','다크 모드 선호',prefs.darkMode);add('DISPLAY','동작 줄이기 선호',prefs.reducedMotion);add('BEHAVIOR','마우스·터치·펜 기록 수',(submission.interactions||[]).length);
+  add('BATTERY','배터리 조회 상태',battery.status);
+  if(battery.status==='ok'){add('BATTERY','충전 상태',battery.charging?'충전 중으로 보고됨':'충전 중 아님');add('BATTERY','잔량 %',battery.levelPercent);add('BATTERY','충전 완료 예상 초',battery.chargingSeconds);add('BATTERY','방전 예상 초',battery.dischargingSeconds);}
+  add('DEVICE','User-Agent',d.userAgent);add('DEVICE','화면 해상도',d.screenWidth+' × '+d.screenHeight);add('DEVICE','창 크기',d.windowWidth+' × '+d.windowHeight);add('DEVICE','색심도',d.colorDepth);add('DEVICE','언어',d.language);add('DEVICE','시간대',d.timezone);add('DEVICE','터치 지원',d.touchSupported);
+  add('HARDWARE','논리 코어 수',h.logicalCores);add('HARDWARE','메모리 추정 GB',h.approximateMemoryGB);add('HARDWARE','픽셀 비율',h.pixelRatio);
+  add('NETWORK','연결 유형 추정',d.effectiveType);add('NETWORK','다운링크 추정 Mbps',d.downlinkMbps);add('NETWORK','RTT 추정 ms',d.rttMs);
+  add('IP','조회 상태',ip.status);if(ip.status==='ok'){add('IP','공인 IP',ip.ip);add('IP','추정 지역 (집 주소 아님)',[ip.country,ip.region,ip.city].filter(Boolean).join(' / '));add('IP','ISP',ip.isp);}
+  add('URL','전체 페이지 URL',submission.fullURL);add('URL','브라우저 제공 유입 주소',submission.fullReferrer);add('BEHAVIOR','기록 수',(submission.events||[]).length);
+  add('NOTICE','개인정보 주의','위 데이터는 선택 동의에 따라 Google Sheets로 전송되는 항목입니다. 제출 ID는 마지막 화면에서 확인하세요.');
+  return rows;
+}
+async function hack(){
+  const hk=$("hk"),box=$("hkin");
+  hk.classList.remove("hide");hk.classList.add("flash");
+  box.style.cssText="display:flex;flex-direction:column;justify-content:flex-end;height:min(82vh,640px);overflow:hidden";
+  box.innerHTML='<h3 style="opacity:0;transition:opacity .5s;flex:none;margin-bottom:14px">설문을 하면서 빼앗긴 정보들</h3><div id="lg" style="display:flex;flex-direction:column;justify-content:flex-end;flex:1;overflow:hidden"></div>';
+  const lg=$("lg"),h=box.querySelector("h3");
+  setTimeout(()=>h.style.opacity="1",500);
+  const rows=await collect();
+  let t=1600,last="";
+  rows.forEach(([g,k,v],n)=>{
+    t+=g!==last?260:95+Math.random()*70;
+    if(g!==last){last=g;setTimeout(()=>addLine(lg,`<span style="color:#44445a">── ${g}</span>`,true),t);t+=170}
+    setTimeout(()=>{
+      const e=document.createElement("div");e.className="ln";e.style.display="flex";e.style.gap="14px";
+      const a=document.createElement("span");a.style.cssText="color:#6b6b78;flex:none;min-width:8.5em";a.textContent=k;
+      const b=document.createElement("span");b.style.cssText="color:#ececf2;word-break:break-all";b.textContent=v;
+      e.append(a,b);lg.appendChild(e);trim(lg);
+    },t);
+  });
+  t+=700;
+  setTimeout(()=>{
+    addLine(lg,'<span style="color:#ff5a5f">해킹 연출 화면입니다... ...</span>',true);
+    const pg=document.createElement("div");pg.className="pg";pg.innerHTML="<div></div>";lg.appendChild(pg);trim(lg);
+    const f=pg.firstChild;f.style.transition="width 2.8s cubic-bezier(.3,.1,.4,1)";requestAnimationFrame(()=>f.style.width="96%");
+  },t);
+  t+=3400;
+  setTimeout(()=>{box.style.transition="opacity .25s";box.style.opacity="0"},t);
+  t+=450;
+  setTimeout(()=>{hk.classList.add("hide");hk.classList.remove("flash");box.style.cssText="";box.style.opacity="1";final()},t);
+}
+function addLine(lg,html,gap){const e=document.createElement("div");e.className="ln";if(gap)e.style.marginTop="10px";e.innerHTML=html;lg.appendChild(e);trim(lg)}
+function trim(lg){while(lg.scrollHeight>lg.clientHeight+2&&lg.children.length>1)lg.removeChild(lg.firstChild)}
+function final(){
+  show("rv");
+  const sec=submission ? submission.durationSeconds : 0;
+  const tm=sec>=60?`${Math.floor(sec/60)}분 ${sec%60}초`:`${sec}초`;
+  $("r2").style.whiteSpace="pre-line";
+  $("r2").textContent=`제출 ID는 아래에서 확인하세요.\n이 설문은 ${who}님이 보냈고, 당신은 ${tm}을 썼습니다.`;
+  setTimeout(()=>$("r0").classList.add("on"),100);
+  setTimeout(()=>$("r1").classList.add("on"),900);
+  setTimeout(()=>$("r2").classList.add("on"),2200);
+  setTimeout(()=>$("r3").classList.add("on"),4200);
+}
+
+$("open").onclick=()=>{$("open").classList.add("hide");$("sbox").classList.remove("hide");$("nm").focus()};
+$("share").onclick=async()=>{
+  const n=$("nm").value.trim();
+  const u=new URL(location.href);u.search="";u.hash="";if(n)u.searchParams.set("from",n);
+  const url=u.toString();
+  if(navigator.share){try{await navigator.share({title:"2026 생활 습관 실태조사",text:"2분이면 끝나는 조사입니다.",url});return}catch(e){}}
+  try{await navigator.clipboard.writeText(url)}catch(e){}
+  toast("링크가 복사되었습니다.");
+};
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),2600)}
+</script>
+</body>
+</html>
