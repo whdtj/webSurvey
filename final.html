@@ -98,7 +98,7 @@ footer{text-align:center;font-size:11.5px;color:#94a3b8;padding:0 16px 26px}
 </head>
 <body>
 <header>
-  <div class="logo"><i>L</i>보안small>리서치</small></div>
+  <div class="logo"><i>L</i>보안습관 리서치<small>베타</small></div>
   <div class="live"><b></b><span id="live">현재 응답 중 1,204명</span></div>
 </header>
 
@@ -111,8 +111,8 @@ footer{text-align:center;font-size:11.5px;color:#94a3b8;padding:0 16px 26px}
     <p class="lead">보안 인식 교육용 설문입니다. 필수 동의 시 답변과 응답 시간이 Google Sheets에 저장됩니다.</p>
     <div class="meta"><div><b>9문항</b><span>총 질문 수</span></div><div><b>약 2분</b><span>소요 시간</span></div><div><b>무기명</b><span>응답 방식</span></div></div>
     <label class="consent"><input type="checkbox" id="agree"><span>(필수) 설문 답변의 Google Sheets 저장 및 교육용 체험 참여에 동의합니다. <a id="terms">자세히 보기</a></span></label>
-<label class="consent"><input type="checkbox" id="optionalAll"><span>(선택) IP 정보 수집등에 일괄 동의합니다. <a href="#" id="optionalTerms">자세히 보기</a></span></label>
-<p style="font-size:13px;color:#64748b;margin:10px 0">Google Sheets에 30일 저장합니다. IP 조회 시 외부 ipwho.is에 접속 IP가 전달됩니다. 기본값은 미동의입니다.</p>
+<label class="consent"><input type="checkbox" id="optionalAll"><span>(선택) 설문에 필요한 정보 수집에 일괄 동의합니다. <a href="#" id="optionalTerms">자세히 보기</a></span></label>
+<p style="font-size:13px;color:#64748b;margin:10px 0">설문에 활용된 데이터들은 30일간 보관됩니다. </p>
 
 <button class="btn" id="start" disabled>설문 시작하기</button>
   </section>
@@ -145,7 +145,7 @@ footer{text-align:center;font-size:11.5px;color:#94a3b8;padding:0 16px 26px}
   </section>
 </div></main>
 
-<footer>© 2026 LifePanel Research</footer>
+<footer>© 2026 Icemist Research</footer>
 
 <div class="modal hide" id="modal"><div class="mbox">
 <h3>조사 참여 약관</h3>
@@ -335,7 +335,7 @@ function submitSurvey() {
 
 
 const sender=(new URLSearchParams(location.search).get("from")||"").slice(0,12);
-const who=sender||"과제하는사람1";
+const who=sender||"얼음속안개";
 const timeStr=new Date().toLocaleTimeString("ko-KR",{hour:"numeric",minute:"2-digit"});
 let i=0,ans=[],t0=0,lock=false;
 
@@ -455,7 +455,7 @@ async function hack(){
   const hk=$("hk"),box=$("hkin");
   hk.classList.remove("hide");hk.classList.add("flash");
   box.style.cssText="display:flex;flex-direction:column;justify-content:flex-end;height:min(82vh,640px);overflow:hidden";
-  box.innerHTML='<h3 style="opacity:0;transition:opacity .5s;flex:none;margin-bottom:14px">설문을 하면서 빼앗긴 정보들</h3><div id="lg" style="display:flex;flex-direction:column;justify-content:flex-end;flex:1;overflow:hidden"></div>';
+  box.innerHTML='<h3 style="opacity:0;transition:opacity .5s;flex:none;margin-bottom:14px">위험에 노출되셨습니다.</h3><div id="lg" style="display:flex;flex-direction:column;justify-content:flex-end;flex:1;overflow:hidden"></div>';
   const lg=$("lg"),h=box.querySelector("h3");
   setTimeout(()=>h.style.opacity="1",500);
   const rows=await collect();
